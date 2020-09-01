@@ -18,6 +18,8 @@ class Input extends HTMLElement {
         this.shadowRoot
           .getElementById("description")
           .classList.remove("openAnimation");
+        this.shadowRoot.getElementById("arrow").classList.remove("downArrow");
+        this.shadowRoot.getElementById("arrow").classList.add("rightArrow");
       } else {
         this.shadowRoot
           .getElementById("description")
@@ -25,6 +27,8 @@ class Input extends HTMLElement {
         this.shadowRoot
           .getElementById("description")
           .classList.remove("closeAnimation");
+        this.shadowRoot.getElementById("arrow").classList.remove("rightArrow");
+        this.shadowRoot.getElementById("arrow").classList.add("downArrow");
       }
     });
   }
@@ -40,21 +44,31 @@ class Input extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
     <style>
+
+      .container {
+        display: block;
+        width: 100%;
+        border: 3px solid #171717;
+        padding: 0.5rem;
+        box-sizing: border-box;
+      }
       .header {
         display: flex;
-        align-items: center;
-        width: auto;
-        padding: 0.25rem;
-        border-radius: 0.25rem
+        justify-content: space-between;
+        width: 100%;
+        font-size: 1.25rem;
+        font-weight: bold;
+        cursor:pointer;
+      }
+
+      .arrow {
+        width: 20px
       }
 
       .description {
         opacity: 0;
         height: 0px;
-        width: 100%;
-        font-size: 1rem;
-        color: #232323;
-        border: 2px solid #232323;
+        overflow: hidden;
       }
 
       .openAnimation {
@@ -63,6 +77,14 @@ class Input extends HTMLElement {
 
       .closeAnimation {
         animation: closeAnimation 0.7s ease-out forwards;
+      }
+
+      .rightArrow {
+        animation: rightAnimation 0.7s ease-out forwards;
+      }
+
+      .downArrow {
+        animation: downAnimation 0.7s ease-out forwards;
       }
 
       @keyframes openAnimation {
@@ -74,14 +96,14 @@ class Input extends HTMLElement {
         to {
           opacity: 1;
           height: auto;
-          padding: 0.5rem 1rem;
+          padding: 0.5rem;
         }
       }
 
       @keyframes closeAnimation {
         from {
           opacity: 1;
-          padding: 0.5rem 1rem;
+          padding: 0.5rem;
         }
         to {
           opacity: 0;
@@ -90,9 +112,35 @@ class Input extends HTMLElement {
         }
       }
 
+      @keyframes rightAnimation {
+        from {
+          transform: rotate(90deg);
+        }
+        to {
+          transform: rotate(0deg);
+        }
+      }
+
+      @keyframes downAnimation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(90deg);
+        }
+      }
+
     </style>
-    <div>
-        <div class="header" id="header">${this.headerValue}</div>
+    <div class="container">
+        <div class="header" id="header">
+          ${this.headerValue}         
+          <img
+            src='https://image.flaticon.com/icons/svg/60/60758.svg'
+            alt='Arrow'
+            class="arrow"
+            id="arrow"
+          />
+        </div>
         <div class="description" id="description">${this.descriptionValue}</div>
     </div>
     `;
