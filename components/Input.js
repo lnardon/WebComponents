@@ -5,10 +5,9 @@ inputTemplate.innerHTML = `
     div {
         display: flex;
         align-items: center;
-        border: 2px solid #232323;
+        border: 3px solid #232323;
         width: auto;
         padding: 0.25rem;
-        border-radius: 0.25rem
     }
 
     input {
@@ -21,9 +20,11 @@ inputTemplate.innerHTML = `
         font-size: 1rem;
         color: #232323
     }
+
     img {
         width: 20px;
         cursor: pointer;
+        display: none;
     }
 </style>
 <div>
@@ -41,7 +42,13 @@ class Input extends HTMLElement {
       .getElementById("clearIcon")
       .addEventListener("click", () => {
         this.shadowRoot.getElementById("input").value = "";
+        this.shadowRoot.getElementById("clearIcon").style.display = "none";
       });
+    this.shadowRoot.getElementById("input").addEventListener("keypress", () => {
+      if (this.shadowRoot.getElementById("input").value) {
+        this.shadowRoot.getElementById("clearIcon").style.display = "block";
+      }
+    });
   }
 }
 
