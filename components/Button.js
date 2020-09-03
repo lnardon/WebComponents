@@ -6,21 +6,6 @@ class Button extends HTMLElement {
 
   connectedCallback() {
     this.render();
-    this.shadowRoot.querySelector("#s1").addEventListener("mouseover", () => {
-      this.shadowRoot.querySelectorAll(".starIcon").forEach((node, index) => {
-        if (index < 1) {
-          node.setAttribute(
-            "src",
-            "https://image.flaticon.com/icons/svg/1828/1828961.svg"
-          );
-        } else {
-          node.setAttribute(
-            "src",
-            "https://image.flaticon.com/icons/svg/1828/1828970.svg"
-          );
-        }
-      });
-    });
   }
 
   render() {
