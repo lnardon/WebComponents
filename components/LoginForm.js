@@ -67,7 +67,7 @@ class LoginForm extends HTMLElement {
         ${
           this.getAttribute("photo")
             ? `<img src=${this.getAttribute("photo")} />`
-            : " <div />"
+            : " <div style='width: 100%;'/>"
         }
         <div class="inputContainer">
             <label for="username">Username</label>

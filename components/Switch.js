@@ -15,8 +15,8 @@ class Switch extends HTMLElement {
     .switch {
     position: relative;
     display: inline-block;
-    width: 80px;
-    height: 37px;
+    width: 60px;
+    height: 27px;
     }
 
     .input {
@@ -42,8 +42,8 @@ class Switch extends HTMLElement {
     .slider:before {
     position: absolute;
     content: '';
-    height: 26px;
-    width: 26px;
+    height: 16px;
+    width: 16px;
     left: 4px;
     bottom: 4px;
     background-color: #171717;
@@ -56,9 +56,9 @@ class Switch extends HTMLElement {
     background-color: #171717;
     }
     .input:checked + .slider:before {
-    -webkit-transform: translateX(40px);
-    -ms-transform: translateX(40px);
-    transform: translateX(40px);
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
     background-color: #f5f5f5;
     }
 
