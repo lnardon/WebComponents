@@ -6,10 +6,83 @@ class Rating extends HTMLElement {
 
   connectedCallback() {
     this.render();
-    this.shadowRoot.getElementById("star").addEventListener("click", () => {
-      console.log("test");
+    this.shadowRoot.querySelector("#s1").addEventListener("mouseover", () => {
+      this.shadowRoot.querySelectorAll(".starIcon").forEach((node, index) => {
+        if (index < 1) {
+          node.setAttribute(
+            "src",
+            "https://image.flaticon.com/icons/svg/1828/1828961.svg"
+          );
+        } else {
+          node.setAttribute(
+            "src",
+            "https://image.flaticon.com/icons/svg/1828/1828970.svg"
+          );
+        }
+      });
+    });
+    this.shadowRoot.querySelector("#s2").addEventListener("mouseover", () => {
+      this.shadowRoot.querySelectorAll(".starIcon").forEach((node, index) => {
+        if (index < 2) {
+          node.setAttribute(
+            "src",
+            "https://image.flaticon.com/icons/svg/1828/1828961.svg"
+          );
+        } else {
+          node.setAttribute(
+            "src",
+            "https://image.flaticon.com/icons/svg/1828/1828970.svg"
+          );
+        }
+      });
+    });
+    this.shadowRoot.querySelector("#s3").addEventListener("mouseover", () => {
+      this.shadowRoot.querySelectorAll(".starIcon").forEach((node, index) => {
+        if (index < 3) {
+          node.setAttribute(
+            "src",
+            "https://image.flaticon.com/icons/svg/1828/1828961.svg"
+          );
+        } else {
+          node.setAttribute(
+            "src",
+            "https://image.flaticon.com/icons/svg/1828/1828970.svg"
+          );
+        }
+      });
+    });
+    this.shadowRoot.querySelector("#s4").addEventListener("mouseover", () => {
+      this.shadowRoot.querySelectorAll(".starIcon").forEach((node, index) => {
+        if (index < 4) {
+          node.setAttribute(
+            "src",
+            "https://image.flaticon.com/icons/svg/1828/1828961.svg"
+          );
+        } else {
+          node.setAttribute(
+            "src",
+            "https://image.flaticon.com/icons/svg/1828/1828970.svg"
+          );
+        }
+      });
+    });
+    this.shadowRoot.querySelector("#s5").addEventListener("mouseover", () => {
+      this.shadowRoot.querySelectorAll(".starIcon").forEach((node, index) => {
+        if (index < 5) {
+          node.setAttribute(
+            "src",
+            "https://image.flaticon.com/icons/svg/1828/1828961.svg"
+          );
+        } else {
+          node.setAttribute(
+            "src",
+            "https://image.flaticon.com/icons/svg/1828/1828970.svg"
+          );
+        }
+      });
     });
   }
+
   render() {
     this.shadowRoot.innerHTML = `
     <style>
@@ -28,11 +101,11 @@ class Rating extends HTMLElement {
     </style>
 
     <div class="ratingContainer">
-        <img src="https://image.flaticon.com/icons/svg/1828/1828970.svg" alt="Rating Icon" class="starIcon" id="star"/>
-        <img src="https://image.flaticon.com/icons/svg/1828/1828970.svg" alt="Rating Icon" class="starIcon"/>
-        <img src="https://image.flaticon.com/icons/svg/1828/1828970.svg" alt="Rating Icon" class="starIcon"/>
-        <img src="https://image.flaticon.com/icons/svg/1828/1828970.svg" alt="Rating Icon" class="starIcon"/>
-        <img src="https://image.flaticon.com/icons/svg/1828/1828970.svg" alt="Rating Icon" class="starIcon"/>
+        <img src="https://image.flaticon.com/icons/svg/1828/1828970.svg" alt="Rating Icon" class="starIcon" id="s1"/>
+        <img src="https://image.flaticon.com/icons/svg/1828/1828970.svg" alt="Rating Icon" class="starIcon" id="s2"/>
+        <img src="https://image.flaticon.com/icons/svg/1828/1828970.svg" alt="Rating Icon" class="starIcon" id="s3"/>
+        <img src="https://image.flaticon.com/icons/svg/1828/1828970.svg" alt="Rating Icon" class="starIcon" id="s4"/>
+        <img src="https://image.flaticon.com/icons/svg/1828/1828970.svg" alt="Rating Icon" class="starIcon" id="s5"/>
     </div>
     `;
   }
