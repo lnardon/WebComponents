@@ -6,6 +6,7 @@ import Switch from "./components/Switch.js";
 import Rating from "./components/Rating.js";
 import Button from "./components/Button.js";
 import Select from "./components/Select.js";
+import Video from "./components/Video.js";
 
 window.customElements.define("nrd-input", Input);
 window.customElements.define("nrd-expandablearea", ExpandableArea);
@@ -15,3 +16,4 @@ window.customElements.define("nrd-switch", Switch);
 window.customElements.define("nrd-rating", Rating);
 window.customElements.define("nrd-button", Button);
 window.customElements.define("nrd-select", Select);
+window.customElements.define("nrd-video", Video);

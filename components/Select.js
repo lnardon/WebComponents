@@ -11,6 +11,16 @@ class Select extends HTMLElement {
       .addEventListener("click", function () {
         this.querySelector(".custom-select").classList.toggle("open");
       });
+  }
+
+  getUserOptions() {
+    let options = "";
+    const userOptions = this.textContent.trim().split(",");
+    userOptions.forEach((option) => {
+      options += ` <span class="custom-option" data-value="${
+        option.split("-")[1]
+      }">${option.split("-")[0]}</span>\n`;
+    });
     for (const option of this.shadowRoot.querySelectorAll(".custom-option")) {
       option.addEventListener("click", (opt) => {
         if (!this.shadowRoot.children[1].classList.contains("selected")) {
@@ -23,6 +33,7 @@ class Select extends HTMLElement {
         }
       });
     }
+    return options;
   }
 
   render() {
@@ -70,7 +81,7 @@ class Select extends HTMLElement {
             font-size: 20px;
             font-weight: 300;
             color: #3b3b3b;
-            height: 60px;
+            height: 35px;
             background: #ffffff;
             cursor: pointer
         }
@@ -78,7 +89,7 @@ class Select extends HTMLElement {
             position: absolute;
             display: block;
             top: 100%;
-            left: 0;
+            left: -3px;
             right: 0;
             border: 3px solid #171717;
             border-top: 0;
@@ -101,7 +112,7 @@ class Select extends HTMLElement {
             font-size: 22px;
             font-weight: 300;
             color: #3b3b3b;
-            line-height: 60px;
+            line-height: 35px;
             cursor: pointer;
             transition: all 0.3s ease-in-out;
         }
@@ -154,9 +165,7 @@ class Select extends HTMLElement {
                 <div class="arrow"></div>
             </div>
             <div class="custom-options">
-                <span class="custom-option selected" data-value="tesla">Tesla</span>
-                <span class="custom-option" data-value="volvo">Volvo</span>
-                <span class="custom-option" data-value="mercedes">Mercedes</span>
+                ${this.getUserOptions()}
             </div>
         </div>
     </div>

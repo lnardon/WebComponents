@@ -19,4 +19,5 @@ Add the following tag to the end of your body tag and all components will be ava
 - Input
 - LoginForm
 - Rating
+- Select
 - Switch
